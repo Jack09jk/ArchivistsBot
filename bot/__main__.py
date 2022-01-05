@@ -12,7 +12,7 @@ def start(update, context):
     LOGGER.info(
         'UID: {} - UN: {} - MSG: {}'.format(update.message.chat.id, update.message.chat.username, update.message.text))
     if update.message.chat.type == "private":
-        sendMessage(f"Hey <b>{update.message.chat.first_name}</b>. Welcome to <b>SearchX Bot</b>", context.bot, update)
+        sendMessage(f"Hey <b>{update.message.chat.first_name}</b>Welcome to <b> Course Finder Bot</b>", context.bot, update)
     else:
         sendMessage("I'm alive :)", context.bot, update)
 
@@ -31,7 +31,7 @@ def list_drive(update, context):
         sendMessage('Send a Search Key Along With Command', context.bot, update)
         return
 
-    reply = sendMessage('Searching...', context.bot, update)
+    reply = sendMessage('Searching 🔎 Please Wait Sir...', context.bot, update)
     LOGGER.info(f"Searching: {search}")
     google_drive = GoogleDriveHelper(None)
 
