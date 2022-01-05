@@ -189,8 +189,8 @@ class GoogleDriveHelper:
                 for file in response:
 
                     if add_title_msg:
-                        msg = f'<h3>I found: {file_name}</h3><br><b><a href="https://github.com/AnimeKaizoku' \
-                              f'/ArchivistsBot"> Bot Repo </a></b> || @TheArchivists '
+                        msg = f'<h3>Search Results for: {file_name}</h3><br><b><a href="https://t.me/CoursesDrive' \
+                              f'/CoursesDrive"> Join Us </a></b> Or Search on Tg @CoursesDrive '
                         add_title_msg = False
                     if add_drive_title:
                         msg += f"╾────────────╼<br><b>{DRIVE_NAME[index]}</b><br>╾────────────╼<br>"
@@ -226,12 +226,12 @@ class GoogleDriveHelper:
             self.telegraph_content.append(msg)
 
         if len(self.telegraph_content) == 0:
-            return "I ..I found nothing of that sort :(", None
+            return "No Result Found 🥺 \nUpload Urself 🤗", None
 
         pref = "♙"
         for content in self.telegraph_content:
             self.path.append(
-                telegraph_obj.create_page(title=f'{pref} The Archivists • 04 • Dragonia', html_content=content)['path'])
+                telegraph_obj.create_page(title=f'{pref} ◦•●◉✿ Courses Drive ✿◉●•◦ ', html_content=content)['path'])
 
         self.num_of_path = len(self.path)
         if self.num_of_path > 1:
@@ -243,6 +243,6 @@ class GoogleDriveHelper:
             msg += "\n(Only showing top 95 results.)"
 
         buttons = button_builder.ButtonMaker()
-        buttons.build_button("Click Here for results", f"https://telegra.ph/{self.path[0]}")
+        buttons.build_button("Check Here", f"https://telegra.ph/{self.path[0]}")
 
         return msg, InlineKeyboardMarkup(buttons.build_menu(1))
